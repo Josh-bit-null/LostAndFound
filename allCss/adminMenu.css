@@ -1,0 +1,925 @@
+:root{
+    --uno: hsla(0, 0%, 37%, 0.4);
+    --dos: hsla(0, 0%, 0%, 0.6);
+    --tres: hsla(0, 0%, 0%, 0.5);
+    --completo: hsla(0, 0%, 0%, 0.95);
+    --cerro: hsla(0, 8%, 77%, 0.05);
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+::-webkit-scrollbar-thumb {
+    transition: 0.5s;
+    background-color: burlywood;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    transition: 0.5s;
+    background-color: rgb(238, 221, 198);
+}
+::-webkit-scrollbar-track {
+    background-color: black;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: burlywood;
+    scroll-behavior: smooth;
+}
+body{
+    min-width: 100vw;
+    height: 100vh;
+    color: #f6b93b;
+    font-weight: bolder;
+    scroll-behavior: smooth;
+    overflow-x: hidden; 
+}
+
+.bigCont{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    min-width: 100vw;
+}
+textarea{
+    margin-top: 1.5%;
+    transition: 0.5s;
+    border: 2px solid #34495e;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    min-width: 200px;
+    max-width: 200px;
+    color: #34495e;
+}
+input{
+    margin-top: 1.5%;
+    transition: 0.5s;
+    border: 2px solid #34495e;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    min-width: 200px;
+    max-width: 200px;
+    color: #34495e;
+}
+input::placeholder{
+    color: #34495e;
+}
+input:hover{
+    transition: 0.5s;
+    min-height: 25px;
+    max-height: 25px;
+    background-color: #202020;
+    border-color: rgb(224, 204, 178);
+}
+
+.navBar{
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+    background-color: #2c3e50;
+    box-shadow: 5px 5px 10px rgb(8, 8, 8);
+    width: 100%;
+    
+}
+.menuButton{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: fixed;
+    left: 5px;
+    overflow: hidden;
+    background-color: rgb(56, 55, 55);
+    min-width: 50px;
+    max-width: 50px;
+    max-height: 100px;
+    z-index: 1001;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid burlywood;
+    border-radius: 3px;
+}
+.menuButton div{
+    transition: 0.5s;
+    max-width: 5px;
+    max-height: 2px;
+    padding-top: 2px;
+    margin: 3px;
+    background-color: burlywood;
+}
+.menuButton:hover div{
+    transition: 0.5s;
+    transform: rotate(90deg);
+}
+a{
+    text-decoration: none;
+    color: #fad390;
+    text-shadow: 2px 2px 2px black;
+}
+.sideBar{
+    transition: 1s;
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 15vw;
+    max-width: 15vw;
+    min-height: 40vh;
+    max-height: 40vh;
+    z-index: 1000;
+    border-radius: 6px;
+    border: 3px solid #eb2f06;
+    backdrop-filter: blur(10px);
+    box-shadow: 4px 4px 10px black;
+    top: 5%;
+    overflow: hidden;
+}
+.sideBar button{
+    transition: 0.5s;
+    border: 1px solid #3c6382;
+    background-color: #1e3799;
+    border-radius: 4px;
+    color: #fad390;
+}
+.sideBar button:hover{
+    transition: 0.5s;
+    padding: 5px;
+    background-color: #353434;
+}
+.sideBar li{
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+.sideBar li:hover{
+    transition: 0.5s;
+    font-size:19px;
+    color: rgb(240, 221, 197);
+    cursor: pointer;
+}
+.sideBar-hovered{
+    transition: 1s;
+    display: flex;
+    animation: 0.6s moveFade linear;
+}
+@keyframes moveFade{
+    from{
+        opacity: 0%;
+        transform: translateX(-100%);
+    }
+    to{
+        opacity: 100%;
+        transform: translateX(9%);
+    }
+}
+.elemSide{
+    transition: 0.5s;
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-width: 35vw;
+    max-width: 35vw;
+    min-height: 70vh;
+    max-height: 70vh;
+    z-index: 1000;
+    border-radius: 6px;
+    border: 3px solid #eb2f06;
+    backdrop-filter: blur(25px);
+    box-shadow: 4px 4px 10px black;
+    top: 14%;
+    overflow: hidden;
+    left: 33%;
+    text-shadow: 2px 2px 2px black;
+    font-size: 17px;
+    gap: 10px;
+}
+.elemSide select{
+    width: 100px;
+    background-color: black;
+}
+.elemSide option{
+    width: 100px;
+    background-color: black;
+}
+.active{
+    display: flex;
+    animation: 1s fade linear;
+}
+@keyframes fade{
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+.elemSideButt{
+    transition: 0.4s;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    display: flex;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 45px;
+    max-height: 45px;
+    border: 2px solid #1e3799;
+    border-radius: 8px;
+    background-color: #3c6382;
+    justify-content: center;
+    color: #fad390;
+    align-items: center;
+}
+.elemSideButt:hover{
+    transition: 0.4s;
+    background-color: black;
+    border-color: rgb(240, 211, 173);
+    padding: 25px;
+}
+.elemSide input{
+    margin-top: 1.5%;
+    transition: 0.5s;
+    border: 2px solid #b71540;
+    background-color: #fad390;
+    border-radius: 4px;
+    min-width: 200px;
+    max-width: 200px;
+    color: #b71540;
+}
+.elemSide input::placeholder{
+    color: #b71540;
+}
+.elemSide input:hover{
+    transition: 0.5s;
+    min-height: 25px;
+    max-height: 25px;
+    background-color: #202020;
+    border-color: rgb(224, 204, 178);
+    color: #fad390;
+}
+.verifyAdminScroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px;
+}
+.verifyAdminScroll table{
+    max-width: 100%;
+}
+.change_pass_butt{
+        transition: 0.4s;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 80px;
+        max-width: 80px;
+        min-height: 35px;
+        max-height: 35px;
+        border: 2px solid #1e3799;
+        border-radius: 8px;
+        background-color: #3c6382;
+        color: #fad390;
+        left: 37%;
+}
+.addItem_butt{
+    transition: 0.4s;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 35px;
+    max-height: 35px;
+    border: 2px solid #1e3799;
+    border-radius: 8px;
+    background-color: #3c6382;
+    color: #fad390;
+    left: 40%;
+    top: 88%;
+}
+.verifyClaim_butt{
+    transition: 0.4s;
+    min-width: 80px;
+    max-width: 80px;
+    min-height: 35px;
+    max-height: 35px;
+    border: 2px solid #1e3799;
+    border-radius: 8px;
+    background-color: #3c6382;
+    color: #fad390;
+}
+.change_pass_butt:hover{
+    transition: 0.5s;
+    min-height: 40px;
+    max-height: 40px;
+    background-color: #202020;
+    border-color: rgb(224, 204, 178);
+}
+.addItem_butt:hover{
+    transition: 0.5s;
+    min-height: 40px;
+    max-height: 40px;
+    background-color: #202020;
+    border-color: rgb(224, 204, 178);
+}
+.verifyClaim_butt:hover{
+    transition: 0.5s;
+    min-height: 40px;
+    max-height: 40px;
+    background-color: #202020;
+    border-color: rgb(224, 204, 178);
+}
+.sideBar li{
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+}
+.navBar a{
+    transition: 0.5s;
+    padding-left: 150px;
+    text-decoration: none;
+}
+.navBar a:hover{
+    transition: 0.5s;
+    padding-left: 150px;
+    text-decoration: none;
+    color: rgb(231, 212, 187);
+    font-size: larger;
+}
+.page{
+    height: 100vh;
+    width: 100%;
+}
+section{
+    width: 100vw;
+}
+.home{
+    background-image: linear-gradient(90deg, var(--uno), var(--dos), var(--dos), var(--dos), var(--dos), var(--completo)), 
+    url('../stylingPhotos/backgrounds/lostAndFoundBg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1Box{
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+}
+h1{
+    color: #f19c52;
+    text-shadow: 2px 2px 4px black;
+}
+.page1Content{
+    width: 100%;
+    min-width: 100%;
+    height: 77vh;
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    gap: 15px;
+    padding: 10px;
+    padding-left: 50px;
+}
+.pie{
+    grid-column: 1 / span 2;
+}
+.sBox{
+    transition: 1s;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    border: 2px solid #f8c291;
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+    padding: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.sBox:hover{
+    transition: 1s;
+    border: 2px solid rgb(231, 213, 188);
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    padding: 6px;
+    background-color: #353434;
+    box-shadow: 5px 5px 14px rgb(32, 32, 32);
+}
+
+.items{
+    background-image: linear-gradient(90deg, var(--completo), var(--tres), var(--tres), var(--tres), var(--tres), var(--completo)), 
+    url('../stylingPhotos/backgrounds/lostAndFoundBg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.search1b{
+    left: 20%;
+}
+.search1b input{
+    min-width: 500px;
+}
+.search1b input:active{
+    min-width: 300px;
+}
+.search1b input:hover{
+    min-width: 500px;
+}
+.searchBox{
+    display: inline;
+    position: relative;
+}
+.searchBox input{
+    transition: 0.5s;
+    background-color: #fad390;
+    height: 20px;
+    border: 1.5px solid #e55039;
+    border-radius: 6px;
+}
+.searchBox input::placeholder{
+    color: #e55039;
+}
+.searchBox input:hover{
+    transition: 0.5s;
+    background-color: #2b2a2a;
+    height: 28px;
+    border: 1.5px solid rgb(238, 216, 188);
+    border-radius: 6px;
+    color: #fad390;
+}
+
+.searchBox button{
+    transition: 0.5s;
+    background-color: #3c6382;
+    border: 1.5px solid #1e3799;
+    border-radius: 6px;
+    min-width: 40px;
+    height: 33px;
+    box-shadow: 2px 2px 4px #292929;
+    color: #fad390;
+}
+.searchBox button:hover{
+    transition: 0.5s;
+    background-color: #272727;
+    border: 1.5px solid rgb(230, 213, 190);
+    border-radius: 6px;
+    min-width: 40px;
+    height: 33px;
+    padding: 5px;
+    box-shadow: 3px 3px 8px #292929;
+}
+.page2Content{
+    display: flex;
+    flex-direction: row;
+}
+.categoryList{
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    min-width: 50vw;
+    max-width: 50vw;
+    position: relative;
+    margin-top: 2%;
+    min-width: 45vw;
+    max-width: 45vw;
+    border: 2px solid  #e55039;
+    justify-content: center;
+    min-height: 30vh;
+    max-height: 30vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    backdrop-filter: blur(10px);
+    border-radius: 6px;
+    margin-left: 10px;
+    text-shadow: 2px 2px 4px black;
+}
+.categoryList h3{
+    display: inline;
+}
+.categoryList .ulOutside{
+    position: relative;
+    display: inline;
+}
+table{
+    margin-left: 7px;
+    border-color: #e74c3c;
+    border-style: solid;
+    border-radius: 3px;
+    box-shadow: 4px 4px 8px rgb(22, 22, 22);
+    backdrop-filter: blur(10px);
+}
+th{
+    min-width: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+td{
+    min-width: 50px;
+}
+img{
+    min-width: 1px;
+    max-width: 130px;
+    size: 1px
+}
+.tableBox{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    min-width: 50vw;
+    max-width: 50vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: fit-content;
+    box-sizing: 100%;
+}
+.page2Box1{
+    min-height: 70vh;
+    max-height: 70vh;
+}
+.page2Box2{
+    min-height: 25vh;
+    max-height: 25vh;
+}
+.page2Box3{
+    min-height: 40vh;
+    max-height: 40vh;
+}
+.page2Part .userItemBox{
+    margin-left: 10px;
+    min-width: 46vw;
+    max-width: 46vw;
+    min-width: 100%;
+    max-width: 100%;
+}
+.tableBox::-webkit-scrollbar{
+    width: 20px;
+}
+.tableBox::-webkit-scrollbar-thumb{
+    height: 1px;
+}
+.tableBox table{
+    min-width: 95%;
+}
+
+.userItemBox {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    min-width: 45vw;
+    max-width: 45vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-sizing: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    background: #f6b93b;
+    border: 2px solid #e58e26;
+    border-radius: 6px;
+}
+.userItemBox h3{
+    color: #0a3d62;
+}
+.userItemBox::-webkit-scrollbar{
+    width: 25px;
+}
+.userItemBox button{
+    transition: 0.5s;
+    background: #3c6382;
+    border: 2px solid #1e3799;
+    border-radius: 6px;
+    color: #fad390;
+}
+.userItemBox button:hover{
+    transition: 0.5s;
+    padding: 6px;
+}
+#addItem{
+    max-width: 400px;
+    margin: auto;
+}
+
+#addItem form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.userItemCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 2px solid #f8c291;
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    border-radius: 6px;
+    height: 100%;
+}
+.userItemBox img{
+    transition: 0.5s;
+    border-radius: 4px;
+    border: 1px solid burlywood;
+}
+.userItemBox img:hover{
+    transition: 0.5s;
+    border-radius: 4px;
+    width: 120px;
+    box-shadow: 3px 3px 12px black;
+}
+.claim{
+    background-image: linear-gradient(90deg, var(--completo), var(--tres), var(--tres), var(--tres), var(--tres), var(--completo)), 
+    url('../stylingPhotos/backgrounds/lostAndFoundBg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.requestBox{
+    min-width: 35vw;
+    min-height: 12vw;
+    max-width: 35vh;
+    max-height: 12vh;
+    position: fixec;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e74c3c;
+    border-radius: 4px;
+    box-shadow: 4px 4px 8px black;
+    backdrop-filter: blur(50px);
+    z-index: 1001;
+    left: 37%;
+    top: 5%;
+}
+.requestBox form{
+    position: relative;
+    left: 104%;
+}
+.inlineActive{
+    display: none;
+}
+.page3h1{
+    min-height: 5vh;
+    overflow: hidden;
+}
+.search2b{
+    min-height: 80vh;
+    max-height: 80vh;
+    min-width: 65vw;
+    max-width: 65vw;
+    margin-left: 10px;
+    border: 3px solid #e74c3c;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px black;
+    backdrop-filter: blur(2px);
+    overflow-y: scroll;
+}
+.search2b input{
+    min-width: 300px;
+}
+.search2b input:active{
+    min-width: 300px;
+}
+.search2b input:hover{
+    min-width: 300px;
+}
+.search2b table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.page3Content{
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+}
+.uBox{
+    position: relative;
+    left: 20px;
+    min-width: 30vw;
+    max-width: 30vw;
+    min-height: 80vh;
+    align-content: center;
+    text-align: center;
+    border: 3px solid #e74c3c;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px black;
+    backdrop-filter: blur(10px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding-right: 20px;
+}
+.uBox table{
+    width: 80%;
+}
+
+
+
+.messages{
+    background-image: linear-gradient(90deg, var(--completo), var(--tres), var(--tres), var(--tres), var(--tres), var(--completo)), 
+    url('../stylingPhotos/backgrounds/lostAndFoundBg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.search3b{
+    min-height: 80vh;
+    min-width: 55vw;
+    margin-left: 80px;
+    border: 3px solid #e74c3c;
+    border-radius: 6px;
+    box-shadow: 5px 5px 10px black;
+    backdrop-filter: blur(2px);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.search3b input{
+    min-width: 300px;
+}
+.search3b input:active{
+    min-width: 300px;
+}
+.search3b input:hover{
+    min-width: 300px;
+}
+.search3b table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+.search3b table td{
+    padding: 20px;
+}
+#sendMessage{
+    max-width: 400px;
+    margin: auto;
+}
+
+#sendMessage form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.messages_table{
+    width: 100%;
+}
+.messUsersCont{
+    min-height: 90vh;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column; 
+}
+.yourMessagesBox{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 27vw;
+    min-width: 27vw;
+    min-height: 43vh;
+    max-height: 43vh;
+}
+.allUsersBox{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-width: 27vw;
+    min-width: 27vw;
+    min-height: 43vh;
+    max-height: 43vh;
+    padding: 10px;
+    padding-right: 50px;
+}
+.allUsersBox table{
+    min-width: 100%;
+    max-width: 100%;
+}
+.allUsersBox button{
+    transition: 0.4s;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 30px;
+    max-height: 30px;
+    border: 2px solid #1e3799;
+    border-radius: 8px;
+    background-color: #3c6382;
+    color: #fad390;
+}
+.allUsersBox button:hover{
+    transition: 0.4s;
+    min-width: 52px;
+    max-width: 52px;
+    min-height: 34px;
+    max-height: 34px;
+    background-color: #000000;
+    border: 1px solid rgb(230, 203, 168);
+}
+
+.contact{
+    background-image: linear-gradient(90deg, var(--completo), var(--tres), var(--cerro), var(--cerro), var(--cerro), var(--tres), var(--completo)), 
+    url('../stylingPhotos/backgrounds/lostAndFoundBg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #fad390;
+    text-shadow: 2px 2px 4px black;
+}
+.contact_box{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    gap: 5px;
+}
+.left_contacts_box{
+    padding-top: 3%;
+    padding-right: 27%;
+    align-items: center;
+    flex-direction: column;
+}
+.right_contacts_box{
+    padding-top: 3%;
+    padding-left: 30%;
+    padding-right: 1%;
+    flex-direction: column;
+    align-items: center;
+}
+.lostAndFoundIcon{
+    transition: 1s;
+    display: inline-flex;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    border: 2px solid #e74c3c;
+    border-radius: 8px;
+    background-image: url("../stylingPhotos/icons/lostAndFound_icon.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+}
+.lostAndFoundIcon:hover{
+    transition: 1s;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+.lostAndFoundContent{
+    transition: 0.7s;
+    display: inline-flex;
+    text-align: center;
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 220px;
+    max-height: 220px;
+    border: 2px solid #e74c3c;
+    border-radius: 8px;
+    backdrop-filter: blur(30px);
+}
+.lostAndFoundContent:hover{
+    transition: 0.8s;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 300px;
+    max-height: 300px;
+    font-size: 25px;
+    position: relative;
+    transform: translateY(-30%);
+    left: -10%;
+}
+
